@@ -1,0 +1,5 @@
+Strategy = polimorfismo ou classes abstratas
+
+e cada classe com a sua strategy especifica e uma não conhece a outra.
+
+ Este padrão pode ser utilizado quando há diversos possíveis algoritmos para uma ação (como calcular imposto, por exemplo). Nele, nós separamos cada um dos possíveis algoritmos em classes separadas.

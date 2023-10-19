@@ -1,6 +1,10 @@
 package strategy.imposto;
 
-public enum TipoImposto {
-    ICMS,
-    ISS;
+import strategy.Orcamento;
+
+import java.math.BigDecimal;
+
+public interface TipoImposto {
+
+    BigDecimal calcular(Orcamento orcamento);
 }
