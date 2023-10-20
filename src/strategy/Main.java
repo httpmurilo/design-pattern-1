@@ -1,17 +1,19 @@
 package strategy;
 
-import strategy.imposto.CalculadoraImposto;
-import strategy.imposto.ICMS;
-import strategy.imposto.ISS;
-import strategy.imposto.TipoImposto;
+import strategy.imposto.*;
 
 import java.math.BigDecimal;
 
 public class Main {
     public static void main(String[] args) {
-        Orcamento orcamento = new Orcamento(new BigDecimal("100"));
+        Orcamento orcamento = new Orcamento(new BigDecimal("100"), 5);
         CalculadoraImposto calculadoraImposto = new CalculadoraImposto();
         System.out.println(calculadoraImposto.calcular(orcamento, new ISS()));
         System.out.println(calculadoraImposto.calcular(orcamento, new ICMS()));
+
+        System.out.println("---------------");
+        System.out.println("Calculadora de descontos");
+        CalculadoraDeDesconto deDesconto= new CalculadoraDeDesconto();
+        System.out.println(deDesconto.calcular(orcamento));
     }
 }
