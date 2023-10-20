@@ -12,3 +12,7 @@ Chain of responsability
  Se não for, chama o próximo, chama o próximo até chegar no fim dessa corrente. Essa que é a ideia do padrão Chain Of Responsibility. Então eu preciso verificar qual regra precisa ser aplicada. E aí cada classe implementamos essa cadeia para conhecer a próxima utilizando o construtor. Então toda classe de desconto precisa receber como parâmetro no construtor quem será o próximo caso ela não seja aplicada.
 
  E dentro do método "calcular" que é o método que faz o cálculo em si do desconto, nós fizemos esse if que é justamente para verificar. Eu preciso ser aplicado? Se eu for aplicado ele vai entrar aqui e morreu o assunto. Se ele não for aplicado, aí ele chama o próximo. Então aqui que está a cadeia. Um chamando o outro quando for necessário. E aí para não ficar duplicado esse código nós utilizamos a herança.
+
+ Template method
+
+O padrão Template Method favorece o reaproveitamento de códigos comuns entre classes, evitando assim duplicações de códigos.
