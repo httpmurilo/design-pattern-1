@@ -3,3 +3,12 @@ Strategy = polimorfismo ou classes abstratas
 e cada classe com a sua strategy especifica e uma não conhece a outra.
 
  Este padrão pode ser utilizado quando há diversos possíveis algoritmos para uma ação (como calcular imposto, por exemplo). Nele, nós separamos cada um dos possíveis algoritmos em classes separadas.
+
+
+Chain of responsability
+
+ O padrão conhecido como Chain Of Responsibility, corrente de responsabilidades onde eu tenho uma corrente, uma sequência, um fluxo de responsabilidades e eu vou verificando qual delas precisa ser aplicada. Se uma não for aplicada, ele está ligado e tem um elo com a próxima e ele vai chamar a próxima. Se for aplicada, aplicou e encerrou o assunto.
+
+ Se não for, chama o próximo, chama o próximo até chegar no fim dessa corrente. Essa que é a ideia do padrão Chain Of Responsibility. Então eu preciso verificar qual regra precisa ser aplicada. E aí cada classe implementamos essa cadeia para conhecer a próxima utilizando o construtor. Então toda classe de desconto precisa receber como parâmetro no construtor quem será o próximo caso ela não seja aplicada.
+
+ E dentro do método "calcular" que é o método que faz o cálculo em si do desconto, nós fizemos esse if que é justamente para verificar. Eu preciso ser aplicado? Se eu for aplicado ele vai entrar aqui e morreu o assunto. Se ele não for aplicado, aí ele chama o próximo. Então aqui que está a cadeia. Um chamando o outro quando for necessário. E aí para não ficar duplicado esse código nós utilizamos a herança.

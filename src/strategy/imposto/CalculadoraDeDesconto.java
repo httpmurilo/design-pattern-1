@@ -1,20 +1,23 @@
 package strategy.imposto;
 
 import strategy.Orcamento;
+import strategy.desconto.Desconto;
+import strategy.desconto.DescontoComMaisDeCincoItens;
+import strategy.desconto.DescontoComValorMaiorQueQuinhentos;
+import strategy.desconto.SemDesconto;
 
 import java.math.BigDecimal;
 
 public class CalculadoraDeDesconto {
 
     public BigDecimal calcular(Orcamento orcamento) {
-        if(orcamento.getQuantidadeItens() > 5) {
-            return orcamento.getValor().max(new BigDecimal("0.1"));
-        }
+        Desconto desconto = new DescontoComMaisDeCincoItens(
+                new DescontoComValorMaiorQueQuinhentos(
+                        new DescontoComValorMaiorQueQuinhentos(
+                                new SemDesconto()
+                        )
+                ));
 
-        if(orcamento.getValor().compareTo(new BigDecimal("500")) > 0) {
-            return orcamento.getValor().max(new BigDecimal("0.2"));
-        }
-
-        return BigDecimal.ZERO;
+        return desconto.calcular(orcamento);
     }
 }
