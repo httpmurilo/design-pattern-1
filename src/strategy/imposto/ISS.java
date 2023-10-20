@@ -1,7 +1,5 @@
 package strategy.imposto;
 
-import strategy.Orcamento;
-
 import java.math.BigDecimal;
 
 public class ISS implements TipoImposto {

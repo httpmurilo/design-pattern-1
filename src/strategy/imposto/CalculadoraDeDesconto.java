@@ -1,6 +1,5 @@
 package strategy.imposto;
 
-import strategy.Orcamento;
 import strategy.desconto.Desconto;
 import strategy.desconto.DescontoComMaisDeCincoItens;
 import strategy.desconto.DescontoComValorMaiorQueQuinhentos;
