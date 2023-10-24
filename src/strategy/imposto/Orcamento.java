@@ -1,5 +1,6 @@
 package strategy.imposto;
 
+import strategy.situacao.EmAnalise;
 import strategy.situacao.SituacaoOrcamento;
 
 import java.math.BigDecimal;
@@ -9,6 +10,7 @@ public class Orcamento {
     public Orcamento(BigDecimal valor, int quantidadeItens) {
         this.valor = valor;
         this.quantidadeItens = quantidadeItens;
+        this.situacao = new EmAnalise();
     }
 
     private BigDecimal valor;
@@ -20,18 +22,20 @@ public class Orcamento {
     }
 
     public void aplicarDescontoExtra() {
-        BigDecimal valorDescontoExtra =  BigDecimal.ZERO;
-
-        if(situacao.equals("EM ANALISE")) {
-
-        } else if (situacao.equals("APROVADO")) {
-            valorDescontoExtra = new BigDecimal("0.02");
-        }
+        BigDecimal valorDescontoExtra =  this.situacao.calcularValorDescontoExtra(this);
         this.valor = this.valor.subtract(valorDescontoExtra);
     }
 
     public void aprovar() {
-        this.situacao = "APROVADO";
+        this.situacao.aprovar(this);
+    }
+
+    public void reprovar() {
+        this.situacao.reprovar(this);
+    }
+
+    public void finalizar() {
+        this.situacao.finalizar(this);
     }
 
 

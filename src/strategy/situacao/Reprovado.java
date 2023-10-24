@@ -1,4 +1,11 @@
 package strategy.situacao;
 
-public class Reprovado {
+import strategy.imposto.Orcamento;
+
+public class Reprovado extends SituacaoOrcamento {
+
+    @Override
+    public void finalizar(Orcamento orcamento) {
+        orcamento.setSituacao(new Finalizado());
+    }
 }

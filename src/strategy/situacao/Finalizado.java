@@ -1,4 +1,8 @@
 package strategy.situacao;
 
-public class Finalizado {
+import strategy.imposto.Orcamento;
+
+import java.math.BigDecimal;
+
+public class Finalizado extends SituacaoOrcamento{
 }
