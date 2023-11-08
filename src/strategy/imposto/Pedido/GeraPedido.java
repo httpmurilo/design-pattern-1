@@ -16,16 +16,16 @@ public class GeraPedido {
         this.quantidadeItens = quantidadeItens;
     }
 
-    public void executa() {
-        System.out.println("---------------");
-        System.out.println("Teste de pedidos");
-        Orcamento orcamento1 = new Orcamento(this.valorOrcamento, this.quantidadeItens);
 
+    public String getCliente() {
+        return cliente;
+    }
 
-        pedido p = new pedido(cliente, LocalDateTime.now(), orcamento1);
+    public BigDecimal getValorOrcamento() {
+        return valorOrcamento;
+    }
 
-
-
-
+    public int getQuantidadeItens() {
+        return quantidadeItens;
     }
 }

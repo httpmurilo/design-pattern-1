@@ -2,10 +2,14 @@ package strategy;
 
 import strategy.imposto.*;
 import strategy.imposto.Pedido.GeraPedido;
+import strategy.imposto.Pedido.GeraPedidoHandler;
+import strategy.imposto.Pedido.acao.EnviarEmail;
+import strategy.imposto.Pedido.acao.SalvarPedido;
 import strategy.imposto.Pedido.pedido;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +26,10 @@ public class Main {
         System.out.println("---------------");
         System.out.println("Calculadora de descontos");
         GeraPedido pedido = new GeraPedido("murilo",BigDecimal.valueOf(300),5);
+        GeraPedidoHandler handler = new GeraPedidoHandler(
+                Arrays.asList(new SalvarPedido(),new EnviarEmail())
+        );
+        handler.execute(pedido);
 
 
     }
